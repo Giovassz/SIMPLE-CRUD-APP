@@ -7,7 +7,7 @@ body {
   font-family: "Poppins", "Inter", system-ui, sans-serif;
 }
 
-/* TITULO PRINCIPAL con degradado animado */
+/* TÍTULO PRINCIPAL con degradado animado */
 .app-title {
   font-size: 2rem;
   font-weight: 800;
@@ -24,140 +24,195 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-/* Animación del gradiente */
 @keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* SUBTITULOS */
+/* Subtítulos */
 .section-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #374151;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: .2px;
 }
-.dark .section-title {
-  color: #f9fafb;
-}
+.dark .section-title { color: #ffffff; }
 
-/* CARD */
+/* Card "tarjeta" */
 .card-style {
-  background: white;
+  background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 1px 0 rgba(0,0,0,0.04),
+    0 8px 24px rgba(0,0,0,0.08);
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  transition: all .25s ease;
 }
 .dark .card-style {
-  background: #2f3640;
-  border: 1px solid #3d4451;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  background: #0b0b0b;
+  border: 1px solid #1f2937;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.03),
+    0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* PRODUCTOS */
+/* Tarjeta de cada producto */
 .product-card {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
   border-radius: 12px;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
+  transition: all .2s ease;
+}
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 .dark .product-card {
-  background: #3b4252;
-  border: 1px solid #4c566a;
+  background: #121212;
+  border: 1px solid #2a2a2a;
+}
+.dark .product-card:hover {
+  box-shadow: 0 8px 20px rgba(255,255,255,0.05);
 }
 
-/* INPUTS */
+/* Labels e inputs */
+.label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+.dark .label { color: #f1f5f9; }
+
 .input-style {
   width: 100%;
-  padding: 0.9rem 1rem;
+  padding: 0.95rem 1rem;
   border-radius: 10px;
   border: 1px solid #d1d5db;
-  background-color: #f9fafb;
+  background: #f8fafc;
   color: #111827;
-  font-size: 0.95rem;
+  font-size: .95rem;
 }
+.input-style::placeholder { color: #9ca3af; }
 .input-style:focus {
   outline: none;
   border-color: #7c3aed;
-  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 0 0 2px rgba(124,58,237,0.22);
 }
 .dark .input-style {
-  background-color: #4c566a;
-  border-color: #6b7280;
-  color: #f9fafb;
+  background: #121212;
+  border-color: #2a2a2a;
+  color: #ffffff;
+}
+.dark .input-style::placeholder { color: #9aa0a6; }
+
+/* Textarea específico para Notas */
+textarea.input-style {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.4;
 }
 
-/* BOTONES */
+/* Botones */
 .btn-primary {
   background: linear-gradient(to right, #7c3aed, #4f46e5);
-  color: white;
-  padding: 0.9rem;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  color: #ffffff;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  border: 2px solid #4f46e5;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
 }
 .btn-primary:hover {
-  transform: scale(1.02);
-  background: linear-gradient(to right, #6d28d9, #4338ca);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(79,70,229,0.25);
+  filter: brightness(1.03);
 }
 .dark .btn-primary {
   background: linear-gradient(to right, #a78bfa, #818cf8);
-  color: #111827;
+  border-color: #818cf8;
+  color: #0b0b0b;
 }
 
 .btn-danger {
   background: linear-gradient(to right, #ef4444, #dc2626);
-  color: white;
+  color: #fff;
   padding: 0.6rem 1rem;
   border-radius: 10px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  font-weight: 700;
+  border: 2px solid #dc2626;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 .btn-danger:hover {
-  transform: scale(1.05);
-  background: linear-gradient(to right, #dc2626, #b91c1c);
-}
-.dark .btn-danger {
-  background: linear-gradient(to right, #f87171, #ef4444);
-  color: #111827;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(220,38,38,0.25);
 }
 
-/* SWITCH estilo iPhone */
+/* Chips de sugerencias (LLM) */
+.pill {
+  font-size: .8rem;
+  padding: .35rem .7rem;
+  border-radius: 9999px;
+  border: 1px solid #c4b5fd;
+  background: #ede9fe;
+  color: #4f46e5;
+  font-weight: 600;
+}
+.pill:hover { filter: brightness(0.97); }
+.dark .pill {
+  background: #0f0f0f;
+  border-color: #3f3f46;
+  color: #c7d2fe;
+}
+.pill-neutral {
+  border-color: #d1d5db;
+  background: #f3f4f6;
+  color: #6b7280;
+}
+.dark .pill-neutral {
+  background: #0f0f0f;
+  color: #9ca3af;
+  border-color: #2a2a2a;
+}
+
+/* Switch modo oscuro (pequeño, esquina) */
 .switch {
-  width: 46px;
-  height: 24px;
+  width: 40px;
+  height: 22px;
   border-radius: 9999px;
   display: flex;
   align-items: center;
   padding: 2px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background .25s ease;
 }
-.switch-light {
-  background: #d1d5db;
-}
-.switch-dark {
-  background: #7c3aed;
-}
+.switch-light { background: #d1d5db; }
+.switch-dark  { background: #7c3aed; }
 .switch-circle {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background: white;
   border-radius: 50%;
-  transition: transform 0.3s ease;
+  transition: transform .25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,.25);
 }
-.switch-dark .switch-circle {
-  transform: translateX(22px);
+.switch-dark .switch-circle { transform: translateX(18px); }
+
+/* Detalles de Notas desplegables */
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #4f46e5;
+}
+.dark details summary { color: #c7d2fe; }
+details[open] summary {
+  margin-bottom: .5rem;
 }

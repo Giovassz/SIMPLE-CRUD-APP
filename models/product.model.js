@@ -5,28 +5,33 @@ const productSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, "Please enter product name"],
-      trim: true, // elimina espacios innecesarios
+      trim: true,
     },
     quantity: {
       type: Number,
       required: [true, "Please enter product quantity"],
       default: 0,
-      min: [0, "Quantity cannot be negative"], // validación extra
+      min: [0, "Quantity cannot be negative"],
     },
     price: {
       type: Number,
       required: [true, "Please enter product price"],
       default: 0,
-      min: [0, "Price cannot be negative"], // validación extra
+      min: [0, "Price cannot be negative"],
     },
     image: {
       type: String,
       required: false,
       trim: true,
     },
+    notes: {
+      type: String,
+      default: "",
+      trim: true,
+    },
   },
   {
-    timestamps: true, // añade createdAt y updatedAt automáticamente
+    timestamps: true,
   }
 );
 
