@@ -2,12 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fuente general */
+/* ===================== */
+/* Fuente y tema general */
+/* ===================== */
 body {
   font-family: "Poppins", "Inter", system-ui, sans-serif;
+  background-color: #f3f4f6; /* gris claro */
+  color: #111827;           /* gris oscuro */
+  transition: color 0.3s, background-color 0.3s;
+  padding-bottom: 80px; /* 🔹 espacio extra para navbar flotante */
 }
 
-/* TÍTULO PRINCIPAL con degradado animado */
+.dark body {
+  background-color: #111827; /* gris oscuro */
+  color: #ffffff;            /* texto blanco */
+}
+
+/* ===================== */
+/* TÍTULO PRINCIPAL animado */
+/* ===================== */
 .app-title {
   font-size: 2rem;
   font-weight: 800;
@@ -24,13 +37,16 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* ===================== */
 /* Subtítulos */
+/* ===================== */
 .section-title {
   font-size: 1.1rem;
   font-weight: 800;
@@ -39,7 +55,9 @@ body {
 }
 .dark .section-title { color: #ffffff; }
 
-/* Card "tarjeta" */
+/* ===================== */
+/* Tarjetas generales */
+/* ===================== */
 .card-style {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -58,7 +76,9 @@ body {
     0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* Tarjeta de cada producto */
+/* ===================== */
+/* Tarjeta de producto */
+/* ===================== */
 .product-card {
   display: flex;
   justify-content: space-between;
@@ -82,7 +102,9 @@ body {
   box-shadow: 0 8px 20px rgba(255,255,255,0.05);
 }
 
+/* ===================== */
 /* Labels e inputs */
+/* ===================== */
 .label {
   font-size: 0.9rem;
   font-weight: 700;
@@ -114,14 +136,16 @@ body {
 }
 .dark .input-style::placeholder { color: #9aa0a6; }
 
-/* Textarea específico para Notas */
+/* Textarea */
 textarea.input-style {
   resize: vertical;
   min-height: 90px;
   line-height: 1.4;
 }
 
+/* ===================== */
 /* Botones */
+/* ===================== */
 .btn-primary {
   background: linear-gradient(to right, #7c3aed, #4f46e5);
   color: #ffffff;
@@ -156,7 +180,9 @@ textarea.input-style {
   box-shadow: 0 10px 20px rgba(220,38,38,0.25);
 }
 
-/* Chips de sugerencias (LLM) */
+/* ===================== */
+/* Chips */
+/* ===================== */
 .pill {
   font-size: .8rem;
   padding: .35rem .7rem;
@@ -183,7 +209,9 @@ textarea.input-style {
   border-color: #2a2a2a;
 }
 
-/* Switch modo oscuro (pequeño, esquina) */
+/* ===================== */
+/* Switch modo oscuro */
+/* ===================== */
 .switch {
   width: 40px;
   height: 22px;
@@ -206,7 +234,9 @@ textarea.input-style {
 }
 .switch-dark .switch-circle { transform: translateX(18px); }
 
-/* Detalles de Notas desplegables */
+/* ===================== */
+/* Detalles desplegables */
+/* ===================== */
 details summary {
   cursor: pointer;
   font-weight: 600;
@@ -215,4 +245,109 @@ details summary {
 .dark details summary { color: #c7d2fe; }
 details[open] summary {
   margin-bottom: .5rem;
+}
+
+/* ===================== */
+/* Interpretación de la IA */
+/* ===================== */
+.query-interpretation {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: linear-gradient(to bottom right, #faf5ff, #fdf2f8);
+  border: 1px solid #e9d5ff;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.15);
+}
+
+.dark .query-interpretation {
+  background: linear-gradient(to bottom right, #1e1b29, #2d1b2f);
+  border: 1px solid #4c1d95;
+  box-shadow: 0 4px 20px rgba(139,92,246,0.25);
+}
+
+.query-interpretation h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #6d28d9;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.dark .query-interpretation h3 {
+  color: #c4b5fd;
+}
+
+.query-interpretation p {
+  font-size: .95rem;
+  line-height: 1.5;
+  color: #1f2937;
+}
+
+.dark .query-interpretation p {
+  color: #e5e7eb;
+}
+
+/* Formato para líneas con "Campo: valor" */
+.query-interpretation p span {
+  font-weight: 700;
+  color: #7c3aed;
+}
+.dark .query-interpretation p span {
+  color: #c084fc;
+}
+
+/* ===================== */
+/* Navbar estilo dock */
+/* ===================== */
+nav.navbar-dock {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  padding: 0.6rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  max-width: 420px;
+  z-index: 50;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.dark nav.navbar-dock {
+  background: rgba(17, 24, 39, 0.85);
+  border: 1px solid #374151;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+nav.navbar-dock a {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transition: all 0.25s ease;
+}
+
+nav.navbar-dock a span {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+nav.navbar-dock a:hover {
+  transform: translateY(-3px);
+}
+
+nav.navbar-dock a.active {
+  color: #7c3aed;
+}
+.dark nav.navbar-dock a.active {
+  color: #c084fc;
 }
